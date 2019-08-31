@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!--Temporary for development pusrpose-->
+    <script src="dev/js/bundle-dev.js"></script>
+    
+    <!--<script src="assets/js/bundle.js"></script>-->
+
+    <title>forkify // Знайдіть рецепт для себе</title>
+</head>
+<body>
+    <div class="container">
+
+        <!--Header section start-->
+        <header class="header">
+            <img src="assets/img/logo.png" alt="Logo" class="header__logo">
+            <form class="search">
+                <input type="text" class="search__field" placeholder="Знайдіть рецепт для себе...">
+                <button class="btn search__btn">
+                    <svg class="search__icon">
+                        <use href="assets/icons/icons.svg#icon-magnifying-glass"></use>
+                    </svg>
+                    <span>Пошук</span>
+                </button>
+            </form>
+            <div class="likes">
+                <div class="likes__field">
+                    <svg class="likes__icon">
+                        <use href="assets/icons/icons.svg#icon-heart"></use>
+                    </svg>
+                </div>
+                <div class="likes__panel">
+                    <ul class="likes__list">
+                        <!--
+                        <li>
+                            <a class="likes__link" href="#23456">
+                                <figure class="likes__fig">
+                                    <img src="assets/img/test-1.jpg" alt="Test">
+                                </figure>
+                                <div class="likes__data">
+                                    <h4 class="likes__name">Pasta with Tomato ...</h4>
+                                    <p class="likes__author">The Pioneer Woman</p>
+                                </div>
+                            </a>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--Header section end-->
+
+        <!--Results section start-->
+        <div class="results">
+            <ul class="results__list">
+                <!--
+                <li>
+                    <a class="results__link results__link--active" href="#23456">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-1.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pasta with Tomato ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#76767">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-2.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pasta Salad with ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#85354">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-3.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Homemade Tomato ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#43563">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-4.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pasta with Tomato ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#2256665">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-5.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Greek Pasta with ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#7567567">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-9.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Cherry tomato, kale ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#5676577">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-7.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pasta with Fresh ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#98798">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-8.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Buttery Tomato Pasta ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#5464646456">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-10.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pesto Pasta Salad ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="results__link" href="#345345435">
+                        <figure class="results__fig">
+                            <img src="assets/img/test-6.jpg" alt="Test">
+                        </figure>
+                        <div class="results__data">
+                            <h4 class="results__name">Pasta with Roasted ...</h4>
+                            <p class="results__author">The Pioneer Woman</p>
+                        </div>
+                    </a>
+                </li>
+                -->
+            </ul>
+
+            <div class="results__pages">
+                <!--
+                <button class="btn-inline results__btn--prev">
+                    <svg class="search__icon">
+                        <use href="assets/icons/icons.svg#icon-triangle-left"></use>
+                    </svg>
+                    <span>Сторінка 1</span>
+                </button>
+                <button class="btn-inline results__btn--next">
+                    <span>Сторінка 3</span>
+                    <svg class="search__icon">
+                        <use href="assets/icons/icons.svg#icon-triangle-right"></use>
+                    </svg>
+                </button>
+                -->
+            </div>
+        </div>
+        <!--Results section end-->
+
+        <!--Recipes section start-->
+        <div class="recipe">
+            <!--
+            <figure class="recipe__fig">
+                <img src="assets/img/test-1.jpg" alt="Tomato" class="recipe__img">
+                <h1 class="recipe__title">
+                    <span>Pasta with tomato cream sauce</span>
+                </h1>
+            </figure>
+            <div class="recipe__details">
+                <div class="recipe__info">
+                    <svg class="recipe__info-icon">
+                        <use href="assets/icons/icons.svg#icon-stopwatch"></use>
+                    </svg>
+                    <span class="recipe__info-data recipe__info-data--minutes">45</span>
+                    <span class="recipe__info-text"> minutes</span>
+                </div>
+                <div class="recipe__info">
+                    <svg class="recipe__info-icon">
+                        <use href="assets/icons/icons.svg#icon-man"></use>
+                    </svg>
+                    <span class="recipe__info-data recipe__info-data--people">4</span>
+                    <span class="recipe__info-text"> Порції</span>
+
+                    <div class="recipe__info-buttons">
+                        <button class="btn-tiny">
+                            <svg>
+                                <use href="assets/icons/icons.svg#icon-circle-with-minus"></use>
+                            </svg>
+                        </button>
+                        <button class="btn-tiny">
+                            <svg>
+                                <use href="assets/icons/icons.svg#icon-circle-with-plus"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="recipe__love">
+                    <svg class="header__likes">
+                        <use href="assets/icons/icons.svg#icon-heart-outlined"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="recipe__ingredients">
+                <ul class="recipe__ingredient-list">
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1000</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit">g</span>
+                            Спагетті
+                        </div>
+                    </li>
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1/2</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit">банка</span>
+                            сир "ricotta"
+                        </div>
+                    </li>
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit"></span>
+                            помідори, цілі або подрібнені
+                        </div>
+                    </li>
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit"></span>
+                            тунець смажений
+                        </div>
+                    </li>
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1/2</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit">банка</span>
+                            сир "parmesan"
+                        </div>
+                    </li>
+                    <li class="recipe__item">
+                        <svg class="recipe__icon">
+                            <use href="assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                        <div class="recipe__count">1/4</div>
+                        <div class="recipe__ingredient">
+                            <span class="recipe__unit">банка</span>
+                            свіжий, подрібнений базилік
+                        </div>
+                    </li>
+                </ul>
+
+                <button class="btn-small recipe__btn">
+                    <svg class="search__icon">
+                        <use href="assets/icons/icons.svg#icon-shopping-cart"></use>
+                    </svg>
+                    <span>Add to shopping list</span>
+                </button>
+            </div>
+
+            <div class="recipe__directions">
+                <h2 class="heading-2">Як приготувати</h2>
+                <p class="recipe__directions-text">
+                    Дані рецепти були уважно підготовлені та протестовані
+                    <span class="recipe__by">The Pioneer Woman</span>. Весь список рецептів можна переглянути на даному ресурсі.
+                </p>
+                <a class="btn-small recipe__btn" href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/" target="_blank">
+                    <span>Directions</span>
+                    <svg class="search__icon">
+                        <use href="assets/icons/icons.svg#icon-triangle-right"></use>
+                    </svg>
+                </a>
+            </div>
+            -->
+        </div>
+        <!--Recipes section end-->
+
+        <!--Shopping section start-->
+        <div class="shopping">
+            <h2 class="heading-2">Моя корзина</h2>
+
+            <ul class="shopping__list">
+                <!--
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="500" step="100">
+                        <p>g</p>
+                    </div>
+                    <p class="shopping__description">Спагетті</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="0.5" step="0.1">
+                        <p>банка</p>
+                    </div>
+                    <p class="shopping__description">сир "Ricotta"</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="3.5" step="0.1">
+                        <p>tbsp</p>
+                    </div>
+                    <p class="shopping__description">Смажені скибочки мигдалю</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="0.5" step="0.1">
+                        <p>tbsp</p>
+                    </div>
+                    <p class="shopping__description">Морський салат</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="0.25" step="0.1">
+                        <p>банка</p>
+                    </div>
+
+                    <p class="shopping__description">Подрібнена зелена цибуля</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="shopping__item">
+                    <div class="shopping__count">
+                        <input type="number" value="45" step="10">
+                        <p>g</p>
+                    </div>
+                    <p class="shopping__description">Насіння кунжуту</p>
+                    <button class="shopping__delete btn-tiny">
+                        <svg>
+                            <use href="assets/icons/icons.svg#icon-circle-with-cross"></use>
+                        </svg>
+                    </button>
+                </li>
+                -->
+            </ul>
+            <!--Shopping section end-->
+
+            <!--Copyright section start-->
+            <div class="copyright">
+                &copy;Vitalii Pertsovych. Powered by
+                <a href="http://food2fork.com" target="_blank" class="link">Food2Fork.com</a>.
+            </div>
+            <!--Copyright section end-->
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "A place where you can find recipes for nice dishes",
+  "main": "index.js",
+  "scripts": {
+    "webpack-dev": "webpack --mode development",
+    "webpack": "webpack --mode production",
+    "concat:css": "concat -o dev/css/style_concat.css dev/css/fonts/fonts.css dev/css/style_dev.css",
+    "compress:css": "node-sass dev/css/style_concat.css assets/css/style.css --output-style compressed"
+  },
+  "author": "Oddisey000",
+  "license": "MIT",
+  "devDependencies": {
+    "concat": "^1.0.3",
+    "node-sass": "^4.12.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}
