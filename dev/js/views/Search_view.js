@@ -1,6 +1,6 @@
 import { elements } from './base';
 
-// Function to get results
+// Function to get results, without parentacies it automatically return the value
 export const getInput = () => elements.searchInput.value;
 
 //Cleare the input field
@@ -11,11 +11,53 @@ export const clearInput = () => {
 //Clear previous results
 export const clearResults = () => {
     elements.searchResultList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 };
 
-// Function for getting results array
-export const getResults = recipes => {
-    recipes.forEach(renderResults);
+// Function for getting results array and devide it to 10 results per one page
+export const getResults = (recipes, page = 1, resultPerPage = 10) => {
+    // Render results of current page
+    const start = (page - 1) * resultPerPage;
+    const end = page * resultPerPage;
+    recipes.slice(start, end).forEach(renderResults);
+
+    // Render pagination buttons
+    renderButtons(page, recipes.length, resultPerPage);
+};
+
+// Create buttons before use it in renderButtons function, type can be previous or the next button
+const createButton = (page, type) => `
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
+        <span>Сторінка ${type === 'prev' ? page - 1 : page + 1}</span>
+        <svg class="search__icon">
+            <use href="assets/icons/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+        </svg>
+    </button>`;
+
+// Buttons for switching beetwen result pages
+const renderButtons = (page, numResults, resPerPage) => {
+    // Makes all pages to be rounded to the next integer number (4.2 = 5)
+    const pages = Math.ceil(numResults / resPerPage);
+
+    //Create variable wich will containg data, and its need to be changable
+    let button;
+
+    // Devide results to the pages
+    if (page === 1 & pages > 1) {
+        // Only button to go to the nex page
+        button = createButton(page, 'next');
+    } else if (page === pages && pages > 1) {
+        // Only button to go to the previous page
+        button = createButton(page, 'prev');
+    } else if (page < pages) {
+        // Buttons between previous and the next pages
+        button = `
+            ${createButton(page, 'next')}
+            ${createButton(page, 'prev')};`;
+    }
+
+    // Display the results of the pages
+    elements.searchResPages.insertAdjacentHTML('afterbegin', button);
 };
 
 // Rendering the recipes
