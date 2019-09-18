@@ -14,6 +14,20 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+//Change color of the recipe when selected
+export const highlightSelected = id => {
+    // Deselect previously selected item make array of all elements
+    const previouslySelected = Array.from(document.querySelectorAll('.results__link'));
+
+    // Deselect active link from all elements from the array
+    previouslySelected.forEach(element => {
+        element.classList.remove('results__link--active');
+    });
+    
+    // Select all href (actualy one) which has selected id
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
+
 // Function for getting results array and devide it to 10 results per one page
 export const getResults = (recipes, page = 1, resultPerPage = 10) => {
     // Render results of current page
