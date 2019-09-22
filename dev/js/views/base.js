@@ -4,7 +4,8 @@ export const elements = {
     searchResultList: document.querySelector('.results__list'),
     searchResultParent: document.querySelector('.results'),
     searchResPages: document.querySelector('.results__pages'),
-    recipe: document.querySelector('.recipe')
+    recipe: document.querySelector('.recipe'),
+    shopping: document.querySelector('.shopping__list')
 };
 
 // Define elements wich is not on the page yet

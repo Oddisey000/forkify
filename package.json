@@ -23,6 +23,7 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
-    "fractional": "^1.0.0"
+    "fractional": "^1.0.0",
+    "uniqid": "^5.0.3"
   }
 }

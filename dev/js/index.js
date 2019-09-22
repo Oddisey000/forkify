@@ -1,8 +1,10 @@
 import { elements, renderLoader, clearLoader } from './views/base';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
+import List from './models/List';
 import * as searchView from './views/Search_view';
 import * as recipeView from './views/Recipe_view';
+import * as listView from './views/List_view';
 
 /*
 * Global state of the app
@@ -131,6 +133,10 @@ elements.recipe.addEventListener('click', event => {
 
         // Increase button was clicked
         state.recipe.updateServings('inc');
+    } else if (event.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
+
+        // If user click the button or any realted child - call function below
+        controlList();
     }
 
     // Update UI
@@ -138,3 +144,48 @@ elements.recipe.addEventListener('click', event => {
 });
 
 // RECIPE CONTROLLER END
+
+// LIST CONTROLLER START
+const controlList = () => {
+    
+    // Create a new list if there is none yet
+    if (!state.list) {
+        state.list = new List();
+    }
+
+    // Add each ingredient to the list and UI
+    state.recipe.ingredients.forEach(element => {
+        const item = state.list.additem(element.count, element.unit, element.ingredient);
+        
+        // Passing created item to List_view.renderItem() function
+        listView.renderItem(item);
+    });
+};
+
+// Handling delete and update list item events, its need event delegation because required item is no currently present when page loads
+elements.shopping.addEventListener('click', event => {
+
+    // Find the closest element to place where user click, which is contain id also
+    const id = event.target.closest('.shopping__item').dataset.itemid;
+
+    // Handle delete and update list item events
+    
+    // Checks if user actualy click delete button, delete item has class shopping__delete
+    if (event.target.matches('.shopping__delete, .shopping__delete *')) {
+
+        // Delete item from state
+        state.list.deleteItem(id);
+
+        // Delete item from UI
+        listView.deleteItem(id);
+
+    // Handling increasing and decreasing elements in the recipe list
+    } else if (event.target.matches('.shopping__count-value')) {
+        const value = parseFloat(event.target.value, 10);
+
+        // Update count of ingredients
+        state.list.updateCount(id, value);
+    }
+});
+
+// LIST CONTROLLER END
