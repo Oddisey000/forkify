@@ -49,7 +49,16 @@ const createIngredients = ingredients => `
     </li>
 `;
 
-export const renderRecipe = recipe => {
+export const renderRecipe = (recipe, isLiked) => {
+    
+    // Checks status if element liked or not
+    let likeStatus;
+    if (isLiked) {
+        likeStatus = '';
+    } else {
+        likeStatus = '-outlined';
+    }
+
     const markup = `
         <figure class="recipe__fig">
             <img src="${recipe.img}" alt="${recipe.title}" class="recipe__img">
@@ -86,7 +95,7 @@ export const renderRecipe = recipe => {
         </div>
             <button class="recipe__love">
                 <svg class="header__likes">
-                    <use href="assets/icons/icons.svg#icon-heart-outlined"></use>
+                    <use href="assets/icons/icons.svg#icon-heart${likeStatus}"></use>
                 </svg>
             </button>
         </div>

@@ -2,9 +2,11 @@ import { elements, renderLoader, clearLoader } from './views/base';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import List from './models/List';
+import Likes from './models/Likes';
 import * as searchView from './views/Search_view';
 import * as recipeView from './views/Recipe_view';
 import * as listView from './views/List_view';
+import * as likesView from './views/Likes_view';
 
 /*
 * Global state of the app
@@ -99,7 +101,10 @@ const controlRecipe = async () => {
 
             // Render the recipe
             clearLoader();
-            recipeView.renderRecipe(state.recipe);
+            recipeView.renderRecipe(
+                state.recipe,
+                state.likes.isLiked(id)
+            );
             
         } catch (error) {
             console.log(error);
@@ -137,6 +142,9 @@ elements.recipe.addEventListener('click', event => {
 
         // If user click the button or any realted child - call function below
         controlList();
+    } else if (event.target.matches('.recipe__love, .recipe__love *')) {
+        // Handle data to like controller
+        controlLike();
     }
 
     // Update UI
@@ -189,3 +197,63 @@ elements.shopping.addEventListener('click', event => {
 });
 
 // LIST CONTROLLER END
+
+// LIKES CONTROLLER START
+
+state.likes = new Likes();
+
+// Toggle like menu on or of
+likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+const controlLike = () => {
+    
+    // Create required variables
+    const currentId = state.recipe.id;
+    const currentTitle = state.recipe.title;
+    const currentAuthor = state.recipe.author;
+    const currentImg = state.recipe.img;
+    
+    // Construct new likes class
+    if (!state.likes) {
+        state.likes = new Likes();
+    }
+    
+    // If there is NOT like
+    if (!state.likes.isLiked(currentId)) {
+        // Add like to state
+        const newLike = state.likes.addLike(
+            currentId,
+            currentTitle,
+            currentAuthor,
+            currentImg
+        );
+
+        // Toggle the like button
+        likesView.toggleLikeBtn(true);
+
+        // Add like to UI list
+        likesView.renderLike(newLike);
+
+        // TESTING
+        console.log(state.likes);
+
+    // If user has liked current recipe
+    } else {
+
+        // Remove like from the state
+        state.likes.deleteLike(currentId);
+
+        // Toggle the like button
+        likesView.toggleLikeBtn(false);
+
+        // Remove liked recipe from the UI
+        likesView.deleteLike(currentId);
+
+        // TESTING
+        console.log(state.likes);
+    }
+
+    // Toggle like menu on or of
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+};
+// LIKES CONTROLLER END

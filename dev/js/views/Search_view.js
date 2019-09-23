@@ -25,7 +25,7 @@ export const highlightSelected = id => {
     });
     
     // Select all href (actualy one) which has selected id
-    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+    document.querySelector(`.results__link[href*="${id}"]`).classList.add('results__link--active');
 };
 
 // Function for getting results array and devide it to 10 results per one page
@@ -102,7 +102,7 @@ export const renderResults = recipe => {
 * accumulator: 9 / accumulator + current.lenght = 15 / newTitle = ['Pasta', 'with', 'tomato']
 * accumulator: 15 / accumulator + current.lenght = 18 / newTitle = ['Pasta', 'with', 'tomato', 'and']
 */
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     // Define new empty array
     const newTitle = [];
 
