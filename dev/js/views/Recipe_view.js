@@ -6,6 +6,10 @@ const formatCount = count => {
     if (count) {
         // Example 2.5 --> 2 1/2; 0.5 --> 1/2
         // Destructuring array of data, integer for hole numbers and decimal for decimal values
+        
+        // Round count number
+        count = Math.round(count * 10000) / 10000;
+
         const [int, dec] = count.toString().split('.').map(element => parseInt(element, 10));
         
         // If no decimals then just return count

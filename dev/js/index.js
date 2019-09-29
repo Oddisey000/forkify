@@ -118,6 +118,20 @@ const controlRecipe = async () => {
 *window.addEventListener('load', controlRecipe);
 */
 
+// Restore liked recipes when page loads
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+    
+    // Restore data from local storage
+    state.likes.readData();
+    
+    // Toggle like menu button if there is likes
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+    
+    // Render the existing likes into the UI
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+});
+
 // Create multi event listener
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
